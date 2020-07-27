@@ -91,15 +91,6 @@ export default function MockInterviewModal({open, closeDo, event, setSubmitStatu
     const submitHandler = async values => {
         setLoading(true);
 
-        const startOfWeek = new Date()
-        startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay() + 7) // subtract to get earlier sunday
-        startOfWeek.setHours(0,0,0,0); // set to midnight
-    
-        const endOfWeek = new Date()
-        endOfWeek.setMonth(8)
-        endOfWeek.setDate(startOfWeek.getDate() + 6) // add to get next saturday
-        endOfWeek.setHours(23, 59, 59, 59)
-
         const name = values.name;
         const email = values.email;
         const comments = values.comments;
@@ -129,6 +120,15 @@ export default function MockInterviewModal({open, closeDo, event, setSubmitStatu
         let lookUpHostEvent = await db.collection("technical")
             .where("host_email", "==", event.host_email)
             .get();
+            
+        const startOfWeek = new Date(event.start_date);
+        startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay()) // subtract to get earlier sunday
+        startOfWeek.setHours(0,0,0,0); // set to midnight
+    
+        const endOfWeek = new Date(event.start_date);
+        endOfWeek.setDate(startOfWeek.getDate() + 6) // add to get next saturday
+        endOfWeek.setHours(23, 59, 59, 59)
+
         let count = 0
         let start;
         let end;
@@ -141,7 +141,7 @@ export default function MockInterviewModal({open, closeDo, event, setSubmitStatu
                 count++;
             }
         }
-        console.log(count);
+
         if (count >= tempEvent.week_availability){
             // if host is past limit
             setLoading(false);
@@ -171,7 +171,7 @@ export default function MockInterviewModal({open, closeDo, event, setSubmitStatu
             text: `Dear ${name},<br/><br/>
             Confirm your interview with ${event.host_name} at ${localIntervieweeStartTime}
             by clicking the link below. It will expire in 24 hours.<br/>
-            ${URL}?token=${token}<br/><br/>
+            <a href=${URL}?token=${token}>Click this link to confirm<a/><br/><br/>
             If you do not wish to confirm, no action is required.<br/><br/>
             Thanks,<br/>
             CVC`
@@ -223,6 +223,7 @@ export default function MockInterviewModal({open, closeDo, event, setSubmitStatu
                     </GridContainer>
                     <div style={{ color: "#F1945B", backgroundColor: "#F1945B", height: 3, marginBottom: "0.7em"}}/>
                     <p>{event.host_bio}</p> 
+                    <a href={event.resume}><p>{event.resume}</p></a> 
                     <Formik
                         validationSchema={validationSchema}
                         onSubmit={submitHandler}
@@ -240,7 +241,7 @@ export default function MockInterviewModal({open, closeDo, event, setSubmitStatu
                                     lineHeight: "30px",
                                     color: "#0072CE"
                                     }}>
-                                    Signup for a mock interview here!
+                                    Sign up for this session:
                                     </div>
                                     <FormikField label="Name" name="name"
                                                     error={errors.name}
