@@ -101,7 +101,7 @@ export default function AdminInterviewModal({open, closeDo, event, setSubmitStat
                     <div style={{ color: "#F1945B", backgroundColor: "#F1945B", height: 3, marginBottom: "0.7em"}}/>
                     <p>{event.host_bio}</p> 
                     <p>Host email: {event.host_email}</p>
-                    <p>Resume: {event.resume}</p>
+                    <p>Resume: <a href={event.resume}>{event.resume}</a></p>
                     <p>Interviews done: {event.host_interviewExp}</p>
                     <p>Max per week: {event.week_availability}</p>
                     <p>Time comments: {event.time_comments}</p>
@@ -113,7 +113,6 @@ export default function AdminInterviewModal({open, closeDo, event, setSubmitStat
                             <p>interview comments: {event.interview_comments}</p>
                         </>
                     }
-                    {event.available && 
                         <Button onClick={async () => {
                             let db = firebase.firestore();
                             await db.collection("technical").doc(event.event_id).delete();
@@ -124,8 +123,22 @@ export default function AdminInterviewModal({open, closeDo, event, setSubmitStat
                             color: "red",
                             marginLeft: "10%"
                         }}>Delete</Button>
-                    }
-                    {!event.approved && 
+                    {event.approved ?
+                        <Button onClick={async () => {
+                            let db = firebase.firestore();
+                            await db.collection("technical").doc(event.event_id).update({
+                                approved: false
+                            });
+                            window.location.reload();
+                        }}
+                        style={{
+                            background: "white",
+                            color: "orange",
+                            marginLeft: "10%"
+                        }}>
+                            Unapprove
+                        </Button> :
+
                         <Button onClick={async () => {
                             let db = firebase.firestore();
                             await db.collection("technical").doc(event.event_id).update({

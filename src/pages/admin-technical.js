@@ -283,6 +283,16 @@ class AdminTechnical extends React.Component {
     window.scrollTo(0, 0);
   }
 
+  eventPropStyles(event, start, end, isSelected) {
+    let style;
+    if(event.approved === true){
+      style = {
+        backgroundColor: "green"
+      };
+    }
+    return { style };
+  }
+
   render() {
     return (
       <Template active={"technical"} title={"Technical"}>
@@ -320,8 +330,7 @@ class AdminTechnical extends React.Component {
         <Calendar
           views={["month", "week", "day"]}
           localizer={localizer}
-          scrollToTime={new Date()}
-          defaultDate={new Date('July 27, 2020 0:00:00')}
+          defaultDate={new Date('August 3, 2020 0:00:00')}
           events={this.state.myEventsList}
           defaultView={"week"}
           startAccessor="start_date"
@@ -332,6 +341,7 @@ class AdminTechnical extends React.Component {
           onSelectEvent={(event) => {
             this.setState({ open: true, event });
           }}
+          eventPropGetter={this.eventPropStyles}
           components={{
             event: this.EventDisplay
           }}
