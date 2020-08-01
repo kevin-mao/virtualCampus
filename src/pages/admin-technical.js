@@ -199,6 +199,7 @@ class AdminTechnical extends React.Component {
       open: false,
       event: null,
       myEventsList: [],
+      count: null,
     };
     this.getEvents();
     this.closeDo = this.closeDo.bind(this);
@@ -252,6 +253,8 @@ class AdminTechnical extends React.Component {
         });
     }
     this.setState({ myEventsList: approvedEventsMap });
+
+    this.setState({ count: approvedEventsMap.filter(event => !event.available).length});
   }
 
 
@@ -285,10 +288,16 @@ class AdminTechnical extends React.Component {
 
   eventPropStyles(event, start, end, isSelected) {
     let style;
-    if(event.approved === true){
-      style = {
-        backgroundColor: "green"
-      };
+    if(event.approved === true){ 
+      if (event.available == false){
+        style = {
+          backgroundColor: "darkgreen"
+        }
+      } else {
+        style = {
+          backgroundColor: "green"
+        };
+      }
     }
     return { style };
   }
@@ -327,6 +336,7 @@ class AdminTechnical extends React.Component {
                 </GridItem>
         </GridContainer>
         <div style={{ color: "#F1945B", backgroundColor: "#F1945B", height: 3}}/>
+        <Title color={"blue"} style={{ padding: '20px', marginTop: 0}}>Interviews booked: {this.state.count}</Title>
         <Calendar
           views={["month", "week", "day"]}
           localizer={localizer}
