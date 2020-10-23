@@ -34,14 +34,12 @@ const WebsiteAndZoom = (props) => {
     }
   ]
 
-
-
   return (
     <div style={{ margin: "15px 0 0 0" }}>
       <div className={classNames(classes.root, classes.title)}>
         Links&nbsp;
         <div style={{ fontSize: "13px", display: "inline" }}>
-          (The zoom link you provide will not be shared unless the viewer has a columbia affiliated email address)
+          (Viewers must have a Columbia affiliated email.)
         </div>
       </div>
       <Grid container spacing={2}>
@@ -58,7 +56,8 @@ const WebsiteAndZoom = (props) => {
             label="Video/Media Link"
             name="invite_link"
             error={props.errors.invite_link}
-            touch={props.touched.invite_link} />
+            touch={props.touched.invite_link}
+          />
         </Grid>
 
         <Grid item sm={4} xs={12}>

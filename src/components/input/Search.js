@@ -3,10 +3,24 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import React from "react";
+import { withStyles } from "@material-ui/core/styles";
 import {CustomButton} from "../";
 import ClearIcon from '@material-ui/icons/Clear';
 
-export default class Search extends React.Component{
+
+const styles = () => ({
+  whiteOutline: {
+    borderColor: 'white',
+  },
+  blackOutline: {
+    borderColor: 'black',
+  },
+  blueOutline: {
+    borderColor: '#0072CE',
+  },
+});
+
+class Search extends React.Component{
   constructor(props) {
     super(props);
     this.state={
@@ -24,12 +38,13 @@ export default class Search extends React.Component{
 
   render(){
    // height of the TextField
-   const height = 44;
+   const height = 47;
    // magic number which must be set appropriately for height
    const labelOffset = -6;
+   const { classes } = this.props;
 
    let iconCol = this.props.iconColor === undefined ? 'black' : this.props.iconColor
-    return(
+   return(
       <div style={{display:'inline'}}>
         <TextField
           style={{ width: "100%", height}}
@@ -48,6 +63,7 @@ export default class Search extends React.Component{
               style: {
                 height,
                 padding: '0 14px',
+                color: this.props.iconColor === undefined ? 'black' : this.props.iconColor
               },
           }}
 
@@ -58,7 +74,10 @@ export default class Search extends React.Component{
           variant="outlined"
           onKeyDown={this.keyPress}
           InputProps={{
-            endAdornment: (
+            classes: { notchedOutline: this.props.iconColor === undefined ? classes.blackOutline :
+                    this.props.iconColor === "white" ? classes.whiteOutline :
+                    classes.blueOutline},
+            startAdornment: (
               <div>
                 <InputAdornment position="end">
                   <IconButton onClick={() => {this.props.onClick(this.state.searchVal)}}>
@@ -69,8 +88,16 @@ export default class Search extends React.Component{
             )
           }}
         />
+        {this.props.searchButtonColor && <CustomButton text={"SEARCH"}
+                    color={this.props.searchButtonColor}
+                    size={"medium"}
+                    onClick={() => {this.props.onClick(this.state.searchVal)}}
+                    style={{height: '47px', display: "inline-block", marginLeft: "12px", marginTop: "0px"}}
+        />}
       </div>
 
     )
   }
 }
+
+export default withStyles(styles)(Search);
