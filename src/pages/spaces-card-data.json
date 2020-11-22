@@ -1,0 +1,53 @@
+[
+    {
+        "title": "Software Engineering", 
+        "tag": "Career", 
+        "description": [
+            {"content": "Recruitment season is coming upon us and many students will be applying to SWE internships or full time positions depending on their class standing. Preparing for the coding interviews can be difficult and time-consuming. Having a community of students supporting each other through this process would make it less daunting as members could pair up for mock interviews and motivate each other to be diligent in their preparation."}, 
+            {"content": "Whether you are preparing for a coding interview or just looking to learn more about the field, this group is for you! Members can ask each other questions, pair up for mock interviews, and make friends with fellow programmers.", "style": "bolc"}
+        ],
+        "imgpath": "software-engineering.png", 
+        "imgtitle": "code"
+    },
+    {
+        "title": "Consulting", 
+        "tag": "Career", 
+        "description": [
+            {"content": "Just as those applying to SWE positions, individuals preparing for a career in consulting also face a rigorous interview process full of case studies. It is difficult to prepare for the case study questions alone, as one is more likely to improve with external feedback. This group aims to bring students attempting to break into consulting together so that they may…."}
+        ],
+        "imgpath": "consulting.png", 
+        "imgtitle": "businessman"
+    },
+    {
+        "title": "Data Science", 
+        "tag": "Career", 
+        "description": [
+            {"content": "Although Data Science is a newer and less popular major than CS among Columbia undergrads it is a growing field with an exciting future. Due to the fact that it is a more recent addition to the department there are less clubs and resources dedicated to it. Creating a community for both those majoring in and interested in data science will give these students more space to interact and collaborate with one another."}
+        ],
+        "imgpath": "test-card.png", 
+        "imgtitle": "unknown"
+    },
+    {
+        "title": "French", 
+        "tag": "Language", 
+        "description": [
+            {"content": "Before Columbia moved classes and all other activities online many language departments across the university offered weekly groups to practice a new language and meet other students learning that language. Our goal is to re-create a space where individuals learning a foreign language can come together to practice and improve. Through groups moderated by people fluent or proficient in one of the languages taught at the university we can facilitate a shared language learning experience."}, 
+            {"content": "Want to travel to France and enjoy the beautiful scenery? With the world at a full stop, this is the perfect time to catch up on your French skills. Whether you are a beginner or proficient in French, this group is the perfect place for you to practice the language and make new friends!", "style": "bold"}
+        ],
+        "imgpath": "french.png", 
+        "imgtitle": "france"
+    },
+    {
+        "title": "Spanish", 
+        "tag": "Language",
+        "imgpath": "spanish.png", 
+        "imgtitle": "spain"
+    },
+    {
+        "title": "Mandarin", 
+        "tag": "Language",
+        "imgpath": "mandarin.png", 
+        "imgtitle": "china"
+    }
+    
+]
