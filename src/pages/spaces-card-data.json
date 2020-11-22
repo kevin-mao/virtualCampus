@@ -4,7 +4,7 @@
         "tag": "Career", 
         "description": [
             {"content": "Recruitment season is coming upon us and many students will be applying to SWE internships or full time positions depending on their class standing. Preparing for the coding interviews can be difficult and time-consuming. Having a community of students supporting each other through this process would make it less daunting as members could pair up for mock interviews and motivate each other to be diligent in their preparation."}, 
-            {"content": "Whether you are preparing for a coding interview or just looking to learn more about the field, this group is for you! Members can ask each other questions, pair up for mock interviews, and make friends with fellow programmers.", "style": "bolc"}
+            {"content": "Whether you are preparing for a coding interview or just looking to learn more about the field, this group is for you! Members can ask each other questions, pair up for mock interviews, and make friends with fellow programmers.", "style": "bold"}
         ],
         "imgpath": "software-engineering.png", 
         "imgtitle": "code"
