@@ -5,7 +5,6 @@ import Card from '../components/spaces/card';
 import spacesCardList from '../pages/spaces-card-data.json';
 import CustomButton from '../components/buttons/CustomButton';
 
-
 const useStyles = makeStyles({
     grid: {
         padding: '3%', 
