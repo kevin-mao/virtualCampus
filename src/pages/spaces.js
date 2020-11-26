@@ -50,13 +50,27 @@ export default function Spaces() {
     });
     return (
         <Template active={'spaces'} title={'Spaces'}>
-            <Title itemStyle={classes.text}>Spaces</Title>
+            <div style={{textAlign:'center', width:'60%', marginLeft:'auto', marginRight:'auto', marginTop:'5%'}}>
+                <Title>Virtual Spaces</Title>
+                <div style={{minHeight: '20px'}}>
+                    <h5 style={{textAlign:'center', color:"#000000", fontSize: "20px", fontWeight: "bold", textTransform:"none"}}>
+                        A new way to kindle interests, virtually.
+                    </h5>
+                    <h5 style={{textAlign:'center', color:"#000000", fontSize: "20px", textTransform:"none"}}>
+                        With specified communities on Slack, you <br></br> can find the channel that suits your needs.
+                    </h5>
+                </div>
+            </div>
+            <div style={{ textAlign: "center", marginTop: 10 }}>
+                <CustomButton text={"Join The Community"} color={"blue"} size={"small"} 
+                    href={"https://www.facebook.com/columbiavirtualcampus/"}/>
+            </div>
             <div className={classes.grid}>{cards}</div>
             <div className={classes.request}>
                 <span></span>
                 Can't find your community?                
                 <CustomButton className={classes.requestbutton} 
-                    color='#0072ce' 
+                    color='blue'
                     size='small' 
                     href='https://docs.google.com/forms' 
                     text='REQUEST NEW SPACE'/>
