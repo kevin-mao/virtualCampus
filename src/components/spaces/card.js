@@ -10,6 +10,7 @@ const useStyles = makeStyles({
         boxShadow: '0px 0px 5px gray',
         overflow: 'hidden',
         height: '240px',
+        width: '100%',
         '&:hover':{
             '& $tag':{
                 opacity: '0',
