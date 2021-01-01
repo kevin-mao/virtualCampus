@@ -7,8 +7,8 @@ import {MetaData, CustomTheme, CustomHeader} from '../'
 const customStyle = makeStyles(() => ({
   container: {
     paddingTop: "50px",
-    paddingLeft:'3%',
-    paddingRight:'3%',
+    paddingLeft: props => props.padding ? props.padding : '3%',
+    paddingRight: props => props.padding ? props.padding : '3%',
     marginLeft:0,
     marginRight:0,
     background: "#FFFFFF",
@@ -19,12 +19,12 @@ const customStyle = makeStyles(() => ({
     background: "#FFFFFF",
     backgroundColor:"#FFFFFF",
     position: "relative",
-    marginBottom:'100px'
+    marginBottom:'100px',
   },
 }));
 
 export default function Template(props) {
-  const custStyle = customStyle();
+  const custStyle = customStyle(props);
   const { children, styleMain, styleContainer} = props;
   return (
     <MuiThemeProvider theme={CustomTheme}>
